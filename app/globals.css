@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap');
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  background: #F3F6FA;
+  color: #0F172A;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Орбы */
+@keyframes orbFloat {
+  0%   { opacity: 0; transform: translate(0,0) scale(1); }
+  5%   { opacity: 1; }
+  33%  { transform: translate(60px,-80px) scale(1.08); }
+  66%  { transform: translate(-40px,60px) scale(0.92); }
+  95%  { opacity: 1; }
+  100% { opacity: 0; transform: translate(0,0) scale(1); }
+}
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0;
+  animation: orbFloat 20s ease-in-out infinite;
+  pointer-events: none;
+}
+.orb-1 { animation-delay: 0s; }
+.orb-2 { animation-delay: -8s; }
+.orb-3 { animation-delay: -14s; }
+
+/* Скан-линия */
+@keyframes scanDown {
+  0%   { top: -2px; opacity: 0; }
+  5%   { opacity: 1; }
+  90%  { opacity: 0.6; }
+  100% { top: 100%; opacity: 0; }
+}
+.scan-line {
+  position: absolute;
+  left: 0; right: 0;
+  height: 1px;
+  top: -2px;
+  background: linear-gradient(90deg, transparent, rgba(11,138,114,0.6), rgba(10,166,136,0.8), rgba(11,138,114,0.6), transparent);
+  box-shadow: 0 0 20px rgba(11,138,114,0.4);
+  animation: scanDown 8s linear infinite;
+}
+
+/* ЭКГ */
+@keyframes ecgDraw {
+  0%   { stroke-dashoffset: 2000; opacity: 0; }
+  5%   { opacity: 1; }
+  80%  { stroke-dashoffset: 0; opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+.ecg-path {
+  stroke: #0AA688;
+  stroke-width: 1.5;
+  fill: none;
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+  animation: ecgDraw 4s linear infinite;
+}
+
+/* Чипы */
+@keyframes chipFloat {
+  0%   { opacity: 0; transform: translateY(8px); }
+  8%   { opacity: 1; transform: translateY(0); }
+  88%  { opacity: 1; transform: translateY(-6px); }
+  96%  { opacity: 0; transform: translateY(-12px); }
+  100% { opacity: 0; }
+}
+.chip { animation: chipFloat 15s ease-in-out infinite; }
+
+/* Пульс */
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.7); }
+}
+.pulse-dot { animation: pulse 2s ease-in-out infinite; }
+
+/* Hero появление */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-anim-1 { animation: fadeUp 0.6s 0.0s ease both; }
+.hero-anim-2 { animation: fadeUp 0.6s 0.1s ease both; }
+.hero-anim-3 { animation: fadeUp 0.6s 0.2s ease both; }
+.hero-anim-4 { animation: fadeUp 0.6s 0.3s ease both; }
+.hero-anim-5 { animation: fadeUp 0.6s 0.45s ease both; }
+.hero-anim-6 { animation: fadeUp 0.8s 0.5s ease both; }
+
+/* Бегущая строка */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-track { animation: marquee 28s linear infinite; }
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Sol card зелёная полоска */
+.sol-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: #0B8A72;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.3s;
+}
+.sol-card:hover::before { transform: scaleY(1); }
+
+/* Шрифты */
+.font-serif { font-family: 'DM Serif Display', Georgia, serif !important; }
+
+/* em в заголовках */
+h1 em {
+  font-style: italic;
+  color: transparent;
+  background: linear-gradient(135deg, #0AA688, #5EEAD4);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+h2 em {
+  font-style: italic;
+  color: #0AA688;
+}
