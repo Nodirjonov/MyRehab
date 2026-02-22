@@ -17,14 +17,12 @@ export default function Voices() {
           {/* Большая карточка */}
           <div className="bg-[#044D40] rounded-[20px] p-7 md:p-10 relative overflow-hidden">
             <div className="font-serif text-[120px] md:text-[200px] text-white/[0.04] absolute -top-8 left-4 leading-none pointer-events-none select-none">"</div>
-            <div className="absolute top-5 right-5 md:top-7 md:right-7 bg-[#0B8A72] text-white text-[11px] font-bold px-3 py-1.5 rounded-full">
-              {t('v1_outcome')}
-            </div>
+         
             <div className="inline-flex items-center gap-1.5 bg-[rgba(11,138,114,0.3)] border border-[rgba(11,138,114,0.4)] rounded-full px-3 py-1 text-[11px] font-semibold text-[#5EEAD4] mb-5">
               <div className="pulse-dot w-1.5 h-1.5 rounded-full bg-[#5EEAD4]" />
               {t('v1_tag')}
             </div>
-            <p className="font-serif text-[16px] md:text-[20px] italic text-white/88 leading-[1.5] mb-7">{t('v1_quote')}</p>
+            <p className="font-serif text-[16px] md:text-[20px] italic text-white/88 text-[#ffff] leading-[1.5] mb-7">{t('v1_quote')}</p>
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 md:w-[42px] md:h-[42px] rounded-[12px] bg-white/10 grid place-items-center font-serif text-[15px] font-bold text-white/70 shrink-0">А</div>
               <div>
